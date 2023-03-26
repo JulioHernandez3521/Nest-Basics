@@ -8,23 +8,7 @@ import {CreateCarDto, UpdateCarDto } from './dtos';
 @Injectable()
 export class CarsService {
 
-    private cars: Car[] = [
-        {
-            id:uuid(),
-            brand:'Toyota',
-            model:'Tacoma'
-        },
-        {
-            id:uuid(),
-            brand:'Nissan',
-            model:'Np300'
-        },
-        {
-            id:uuid(),
-            brand:'Ford',
-            model:'Ranger'
-        }
-    ];
+    private cars: Car[] = [];
 
     getAll(){
         return {data:[...this.cars], length: this.cars.length};
@@ -79,5 +63,9 @@ export class CarsService {
         return {carDB, length: this.cars.length}
         
 
+    }
+
+    fillCarsWithSeedData (cars:Car[]){
+        this.cars = cars;
     }
 }
